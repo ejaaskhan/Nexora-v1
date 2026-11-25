@@ -5,8 +5,9 @@ dist/
 dev-dist/
 coverage/
 
-# Local Archives & Non-npm Lockfiles
+# Local Archives, Chat Attachments & Non-npm Lockfiles
 public/*.zip
+public/assets/aistudio/
 *.zip
 bun.lock
 bun.lockb
