@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>NEXORA — Focus Timer &amp; Daily Planner</title>
+    <meta
+      name="description"
+      content="Architectural focus timer and daily time-block planner built for calm, local-first productivity across web and mobile."
+    />
+    <meta property="og:title" content="NEXORA — Focus Timer & Daily Planner" />
+    <meta
+      property="og:description"
+      content="Architectural focus timer and daily time-block planner built for calm, local-first productivity across web and mobile."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#070B19" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="NEXORA" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var raw = localStorage.getItem('nexora_workspace_v1');
+          var theme = 'dark';
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            if (parsed && parsed.settings && parsed.settings.theme) {
+              theme = parsed.settings.theme;
+            }
+          }
+          var isDark =
+            theme === 'dark' ||
+            (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            if (meta) meta.setAttribute('content', '#070B19');
+          } else {
+            document.documentElement.classList.remove('dark');
+            if (meta) meta.setAttribute('content', '#EFF4FC');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-7_KvHkS2.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-BWaJ3C7D.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-icons-DC1m9BcM.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-CCCRAr4U.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-motion-CK_Ke6z2.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-5_vEJFGm.css">
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+  <body class="antialiased selection:bg-cyan-500/25 selection:text-cyan-900 dark:selection:text-cyan-200">
+    <div id="root"></div>
+  </body>
+</html>

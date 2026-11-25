@@ -1,0 +1,6 @@
+{
+  "name": "NEXORA",
+  "description": "Architectural focus timer and daily time-block planner built for calm, local-first productivity across web and mobile.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

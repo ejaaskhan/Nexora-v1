@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="nxBg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0C132A" />
+      <stop offset="100%" stop-color="#070B19" />
+    </linearGradient>
+    <linearGradient id="nxAccent" x1="140" y1="140" x2="372" y2="372" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#nxBg)" />
+  <rect x="20" y="20" width="472" height="472" rx="98" stroke="url(#nxAccent)" stroke-opacity="0.45" stroke-width="6" />
+  <path d="M156 368V144H202L310 296V144H356V368H310L202 216V368H156Z" fill="#F8FAFC" />
+  <rect x="310" y="144" width="46" height="46" rx="8" fill="url(#nxAccent)" />
+</svg>

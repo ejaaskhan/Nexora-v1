@@ -1,0 +1,37 @@
+# Dependencies & Build Outputs
+node_modules/
+build/
+dist/
+dev-dist/
+coverage/
+
+# Local Archives & Non-npm Lockfiles
+public/*.zip
+*.zip
+bun.lock
+bun.lockb
+
+# Environment & Secrets
+.env*
+!.env.example
+
+# Android Gradle & Release Keystore Secrets
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/build/
+android/local.properties
+android/keystore.properties
+*.jks
+*.keystore
+*.p12
+
+# OS, Editor & Tooling Metadata
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.iml
+.aistudio/

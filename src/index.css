@@ -1,0 +1,355 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* ==========================================================================
+   NEXORA Design Tokens — Frosted Light (:root) & Midnight Navy Dark (.dark)
+   ========================================================================== */
+:root {
+  --nx-canvas: #EFF4FC;
+  --nx-canvas-secondary: #E6EEFA;
+
+  --nx-glass: rgba(255, 255, 255, 0.72);
+  --nx-glass-elevated: rgba(255, 255, 255, 0.86);
+  --nx-glass-spotlight: linear-gradient(145deg, rgba(255, 255, 255, 0.90) 0%, rgba(241, 246, 255, 0.78) 100%);
+  --nx-glass-sidebar: rgba(255, 255, 255, 0.78);
+  --nx-glass-input: rgba(241, 245, 253, 0.85);
+  --nx-glass-hover: rgba(241, 245, 253, 0.92);
+
+  --nx-border: rgba(15, 23, 42, 0.08);
+  --nx-border-strong: rgba(15, 23, 42, 0.14);
+  --nx-border-specular: rgba(255, 255, 255, 0.90);
+  --nx-border-glow: rgba(124, 58, 237, 0.34);
+  --nx-border-cyan: rgba(8, 145, 178, 0.38);
+
+  --nx-ink: #0B1120;
+  --nx-ink-secondary: #334155;
+  --nx-ink-muted: #64748B;
+
+  --nx-purple: #7C3AED;
+  --nx-cyan: #0891B2;
+  --nx-gradient-primary: linear-gradient(135deg, #7C3AED 0%, #0891B2 100%);
+  --nx-gradient-soft: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(8, 145, 178, 0.12) 100%);
+
+  --nx-shadow-glass: 0 8px 30px -12px rgba(15, 23, 42, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+  --nx-shadow-glass-hover: 0 14px 36px -12px rgba(124, 58, 237, 0.16), 0 0 0 1px rgba(124, 58, 237, 0.22), inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+  --nx-shadow-glow: 0 8px 24px -6px rgba(124, 58, 237, 0.38), 0 2px 10px -2px rgba(8, 145, 178, 0.25);
+
+  --nx-orb-purple: radial-gradient(circle at 12% 10%, rgba(139, 92, 246, 0.15) 0%, transparent 48%);
+  --nx-orb-cyan: radial-gradient(circle at 88% 82%, rgba(6, 182, 212, 0.13) 0%, transparent 50%);
+  --nx-orb-mid: radial-gradient(circle at 60% 18%, rgba(56, 189, 248, 0.08) 0%, transparent 42%);
+}
+
+.dark {
+  --nx-canvas: #070B19;
+  --nx-canvas-secondary: #0B1124;
+
+  --nx-glass: rgba(15, 23, 46, 0.62);
+  --nx-glass-elevated: rgba(20, 30, 58, 0.76);
+  --nx-glass-spotlight: linear-gradient(145deg, rgba(24, 34, 68, 0.78) 0%, rgba(13, 21, 44, 0.68) 100%);
+  --nx-glass-sidebar: rgba(10, 16, 34, 0.78);
+  --nx-glass-input: rgba(9, 14, 30, 0.68);
+  --nx-glass-hover: rgba(30, 44, 82, 0.52);
+
+  --nx-border: rgba(148, 163, 184, 0.14);
+  --nx-border-strong: rgba(148, 163, 184, 0.24);
+  --nx-border-specular: rgba(255, 255, 255, 0.08);
+  --nx-border-glow: rgba(139, 92, 246, 0.42);
+  --nx-border-cyan: rgba(34, 211, 238, 0.40);
+
+  --nx-ink: #F8FAFC;
+  --nx-ink-secondary: #CBD5E1;
+  --nx-ink-muted: #94A3B8;
+
+  --nx-purple: #8B5CF6;
+  --nx-cyan: #06B6D4;
+  --nx-gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+  --nx-gradient-soft: linear-gradient(135deg, rgba(139, 92, 246, 0.18) 0%, rgba(6, 182, 212, 0.16) 100%);
+
+  --nx-shadow-glass: 0 12px 36px -14px rgba(2, 6, 23, 0.68), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  --nx-shadow-glass-hover: 0 18px 42px -12px rgba(2, 6, 23, 0.8), 0 0 24px -8px rgba(34, 211, 238, 0.22), 0 0 0 1px rgba(139, 92, 246, 0.34), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  --nx-shadow-glow: 0 10px 28px -6px rgba(139, 92, 246, 0.46), 0 4px 16px -4px rgba(6, 182, 212, 0.32);
+
+  --nx-orb-purple: radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.22) 0%, transparent 46%);
+  --nx-orb-cyan: radial-gradient(circle at 88% 84%, rgba(6, 182, 212, 0.17) 0%, transparent 48%);
+  --nx-orb-mid: radial-gradient(circle at 58% 16%, rgba(99, 102, 241, 0.11) 0%, transparent 40%);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--nx-canvas);
+    color: var(--nx-ink);
+  }
+
+  body {
+    background-color: var(--nx-canvas);
+    color: var(--nx-ink);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .dark body {
+    letter-spacing: 0.01em;
+  }
+}
+
+/* ==========================================================================
+   Reusable Glassmorphism Utility Classes
+   ========================================================================== */
+.nx-ambient-backdrop {
+  background-color: var(--nx-canvas);
+  background-image: var(--nx-orb-purple), var(--nx-orb-cyan), var(--nx-orb-mid);
+}
+
+.nx-glass {
+  background: var(--nx-glass);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--nx-border);
+  box-shadow: var(--nx-shadow-glass);
+}
+
+.nx-glass-elevated {
+  background: var(--nx-glass-elevated);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid var(--nx-border-strong);
+  box-shadow: var(--nx-shadow-glass);
+}
+
+.nx-glass-spotlight {
+  background: var(--nx-glass-spotlight);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid var(--nx-border-glow);
+  box-shadow: var(--nx-shadow-glass-hover);
+}
+
+.nx-glass-sidebar {
+  background: var(--nx-glass-sidebar);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+}
+
+.nx-glass-interactive {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nx-glass-interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--nx-border-cyan);
+  box-shadow: var(--nx-shadow-glass-hover);
+}
+
+.nx-gradient-primary {
+  background-image: var(--nx-gradient-primary);
+}
+
+.nx-gradient-text {
+  background-image: var(--nx-gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nx-glow-button {
+  background-image: var(--nx-gradient-primary);
+  box-shadow: var(--nx-shadow-glow);
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 160ms ease,
+    box-shadow 180ms ease;
+}
+
+.nx-glow-button:hover {
+  filter: brightness(1.07);
+  transform: translateY(-1px);
+}
+
+.nx-glow-button:active {
+  transform: scale(0.98);
+}
+
+.nx-input {
+  background: var(--nx-glass-input);
+  border: 1px solid var(--nx-border-strong);
+  color: var(--nx-ink);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.nx-input:focus {
+  outline: none;
+  border-color: var(--nx-cyan);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.16);
+}
+
+.nx-divider {
+  border-color: var(--nx-border);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pl-safe {
+  padding-left: env(safe-area-inset-left, 0px);
+}
+
+.pr-safe {
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* ==========================================================================
+   Smart Notes Rich Text Editor Canvas (.nx-prose)
+   ========================================================================== */
+.nx-prose {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--nx-ink);
+  word-break: break-word;
+}
+
+.nx-prose:empty::before {
+  content: attr(data-placeholder);
+  color: var(--nx-ink-muted);
+  pointer-events: none;
+  display: block;
+}
+
+.nx-prose h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.15rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
+}
+
+.nx-prose h1:first-child,
+.nx-prose h2:first-child {
+  margin-top: 0;
+}
+
+.nx-prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.nx-prose p,
+.nx-prose div {
+  margin-bottom: 0.55rem;
+}
+
+.nx-prose ul:not([data-checklist="true"]) {
+  list-style-type: disc;
+  padding-left: 1.35rem;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.nx-prose ol {
+  list-style-type: decimal;
+  padding-left: 1.35rem;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.nx-prose li {
+  margin-bottom: 0.25rem;
+}
+
+.nx-prose ul[data-checklist="true"] {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.55rem 0 0.85rem;
+}
+
+.nx-prose ul[data-checklist="true"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.2rem 0;
+}
+
+.nx-prose ul[data-checklist="true"] li input[type="checkbox"] {
+  margin-top: 0.32rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: #06B6D4;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nx-prose ul[data-checklist="true"] li[data-checked="true"] {
+  color: var(--nx-ink-muted);
+  text-decoration: line-through;
+}
+
+.nx-prose blockquote {
+  margin: 0.75rem 0;
+  padding: 0.65rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--nx-border-strong);
+  background: var(--nx-gradient-soft);
+  font-style: italic;
+  color: var(--nx-ink-secondary);
+}
+
+.nx-prose pre {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--nx-border-strong);
+  background: var(--nx-glass-input);
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.nx-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.35rem;
+  background: var(--nx-glass-input);
+}
+
+.nx-prose pre code {
+  padding: 0;
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
